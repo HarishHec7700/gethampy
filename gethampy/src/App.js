@@ -1,33 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Components/Home';
-import "./BootStrap/bootstrap.min.css"
-import Sidebar from './Components/Sidebar';
+import "./BootStrap/bootstrap.min.css";
+import Feed from "./Components/Feed";
+import Library from "./Components/Library"
+import Trend from "./Components/Trend"
+import Fav from "./Components/Fav"
+import Playlist from "./Components/Playlist"
 
 
 function App() {
   return (
     <>
       <Router>
-        <section className='main'>
-
-          <div className='row adjust'>
-            <div className=' col-sm-1 col-md-1 col-lg-1'>
-              <Sidebar/>
-            </div>
-            <div className='col-sm-11 col-md-11 col-lg-11'>
-              <div className='mainplayer'>
-              MainPlayer
-
-              </div>
-            </div>
-          </div>
           <Routes>
-            <Route path="/home" element={<Home />}></Route>
-          </Routes>
+            <Route path="/player" element={<App />}></Route>
+            {/* Nested Routing starts  */}
+            <Route path="/home" element={<Home />}>  
+              <Route path="/home/fav" element={<Fav />}></Route>
+              <Route path="/home/feed" element={<Feed />}></Route>
+              <Route path="/home/library" element={<Library />}></Route>
+              <Route path="/home/playlist" element={<Playlist />}></Route>
+              <Route path="/home/trend" element={<Trend />}></Route>
 
-        </section>
+            </Route>
+          </Routes>
       </Router>
     </>
   );
