@@ -7,11 +7,13 @@ import Library from "./Components/Library"
 import Trend from "./Components/Trend"
 import Fav from "./Components/Fav"
 import Playlist from "./Components/Playlist"
+import Login from "./Components/Login/Login"
 
 
 function App() {
   return (
     <>
+    <Login/>
       <Router>
           <Routes>
             <Route path="/player" element={<App />}></Route>

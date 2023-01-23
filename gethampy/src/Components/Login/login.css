@@ -1,0 +1,32 @@
+.login{
+    background-color:#000;
+    padding: 0 1rem;
+    align-items: center;
+    color: #fff;
+}
+
+.compLogo{
+    width: 20%;
+    flex-wrap: wrap;
+}
+
+.comp-img{
+    width: 40%;
+}
+
+.comp-img img{
+    width: 100%;
+}
+
+.compLogo h3{
+    width: 60%;
+    font-size: 2rem;
+    color: #fff;
+    font-weight: 700;
+    padding: 2rem 0.5rem;
+}
+
+.startBtn{
+    width: 100%;
+
+}
