@@ -1,4 +1,5 @@
 import './App.css';
+import {useEffect, useState} from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Components/Home';
 import "./BootStrap/bootstrap.min.css";
@@ -11,14 +12,37 @@ import Login from "./Components/Login/Login"
 
 
 function App() {
+  const [token,setToken]=useState("");
+  console.log("hi ");
+
+  useEffect(()=>{
+    // window.localStorage.clear();
+    const token=window.localStorage.getItem("token"),
+    locate=window.location.hash;
+    window.location.hash="";
+    if(!token && locate){
+      const _token=locate.split("&")[0].split("=")[1];
+      // console.log(authToken);
+      window.localStorage.setItem("token",_token);
+      setToken(_token);  
+    }else{
+      setToken(token); 
+    }
+  },[])
+  console.log(token);
+
   return (
+    !token ?(<Login/>)
+    :
     <>
-    <Login/>
-      <Router>
+    {/* {token} */}
+      {/* <Login/> */}
+      <Home/>
+      {/* <Router>
           <Routes>
-            <Route path="/player" element={<App />}></Route>
+            <Route path="/" element={<App />}></Route> */}
             {/* Nested Routing starts  */}
-            <Route path="/home" element={<Home />}>  
+            {/* <Route path="/home" element={<Home />}>  
               <Route path="/home/fav" element={<Fav />}></Route>
               <Route path="/home/feed" element={<Feed />}></Route>
               <Route path="/home/library" element={<Library />}></Route>
@@ -27,8 +51,9 @@ function App() {
 
             </Route>
           </Routes>
-      </Router>
-    </>
+      </Router> */}
+      </>
+      
   );
 }
 

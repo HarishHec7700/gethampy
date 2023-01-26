@@ -3,6 +3,7 @@
     padding: 0 1rem;
     align-items: center;
     color: #fff;
+    height: 100vh;
 }
 
 .compLogo{
@@ -18,6 +19,12 @@
     width: 100%;
 }
 
+.img-container{
+    width: 100%;
+}
+.img-container img{
+    width: 100%;
+}
 .compLogo h3{
     width: 60%;
     font-size: 2rem;
@@ -28,5 +35,13 @@
 
 .startBtn{
     width: 100%;
-
+    margin: 2rem 3rem;
+    color: #fff;
 }
+/* <div className="compLogo d-flex">
+                <div className="comp-img">
+                  <img src="https://www.freepnglogos.com/uploads/spotify-logo-png/file-spotify-logo-png-4.png" alt="Company Logo" />
+                </div>
+                
+                <button className='btn btn-primary startBtn'>Get Started</button>
+            </div> */
