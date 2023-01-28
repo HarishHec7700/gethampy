@@ -1,5 +1,5 @@
 import './App.css';
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Components/Home';
 import "./BootStrap/bootstrap.min.css";
@@ -9,51 +9,55 @@ import Trend from "./Components/Trend"
 import Fav from "./Components/Fav"
 import Playlist from "./Components/Playlist"
 import Login from "./Components/Login/Login"
+import { setClientToken } from './AuthProcess/ApiDetails';
 
 
 function App() {
-  const [token,setToken]=useState("");
-  console.log("hi ");
+  const [token, setToken] = useState("");
 
-  useEffect(()=>{
+  useEffect(() => {
     // window.localStorage.clear();
-    const token=window.localStorage.getItem("token"),
-    locate=window.location.hash;
-    window.location.hash="";
-    if(!token && locate){
-      const _token=locate.split("&")[0].split("=")[1];
+    const authToken = window.localStorage.getItem("token"),
+      locate = window.location.hash;
+    window.location.hash = "";
+    if (!token && locate) {
+      const _token = locate.split("&")[0].split("=")[1];
       // console.log(authToken);
-      window.localStorage.setItem("token",_token);
-      setToken(_token);  
-    }else{
-      setToken(token); 
+      window.localStorage.setItem("token", _token);
+      setToken(_token);
+      setClientToken(_token);
+    } else {
+      setToken(authToken);
+      setClientToken(authToken);
     }
-  },[])
+  }, [])
   console.log(token);
+  
+
 
   return (
-    !token ?(<Login/>)
-    :
     <>
-    {/* {token} */}
-      {/* <Login/> */}
-      <Home/>
-      {/* <Router>
-          <Routes>
-            <Route path="/" element={<App />}></Route> */}
-            {/* Nested Routing starts  */}
-            {/* <Route path="/home" element={<Home />}>  
-              <Route path="/home/fav" element={<Fav />}></Route>
-              <Route path="/home/feed" element={<Feed />}></Route>
-              <Route path="/home/library" element={<Library />}></Route>
-              <Route path="/home/playlist" element={<Playlist />}></Route>
-              <Route path="/home/trend" element={<Trend />}></Route>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Login />}></Route>
+        </Routes>
+      {token ?
+        <Routes>
+          <Route path="/" element={<Login />}></Route>
+          {/* Nested Routing starts  */}
+          <Route path="/home" element={<Home />}>
+            <Route path="/home/fav" element={<Fav />}></Route>
+            <Route path="/home/feed" element={<Feed />}></Route>
+            <Route path="/home/library" element={<Library />}></Route>
+            <Route path="/home/playlist" element={<Playlist />}></Route>
+            <Route path="/home/trend" element={<Trend />}></Route>
+          </Route>
+        </Routes>
+          :
+          <Login />}
+      </Router>
+    </>
 
-            </Route>
-          </Routes>
-      </Router> */}
-      </>
-      
   );
 }
 
