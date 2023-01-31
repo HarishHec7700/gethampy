@@ -10,7 +10,7 @@ export const loginEndpoint = `${authEndPt}client_id=${clientId}&redirect_uri=${r
 )}&response_type=token&show_dialog=true`;
 
 const apiClient=axios.create({
-  baseURL:"https://spi.spotify.com/v1",
+  baseURL:"https://api.spotify.com/v1/",
 });
 
 
@@ -18,7 +18,7 @@ export const setClientToken=(token)=>{
   // Interceptors in axios is used to customize the request and response with our desired datas i.e like headers or tokens 
   apiClient.interceptors.request.use(async function(config){
     // Instead of adding token got from the link in each request header we are creating a const with a header itself for that purpose we are using the Authorization property.   
-    config.headers.Authorization= "Bearer" +token;
+    config.headers.Authorization= "Bearer "+token;
     return config;
   } )
 };

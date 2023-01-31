@@ -9,6 +9,9 @@
   margin: 0;
 }
 
+.flex-dir-col{
+  flex-direction: column;
+}
 .adjust {
   margin-left: 0;
   margin-right: 0;
