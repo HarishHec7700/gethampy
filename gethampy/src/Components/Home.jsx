@@ -17,7 +17,7 @@ function Home() {
       // console.log(res.data.display_name);
     })
   }, [])
-  // console.log(user);
+  console.log(user);
   return (
     <>
       <section className='main'>
@@ -81,7 +81,14 @@ function Home() {
           </div>
           <div className='col-sm-11 col-md-11 col-lg-11'>
             <div className='mainplayer'>
-              <h1>Welcome back ,{user.data.display_name} </h1>
+              <div className="profile-disp d-flex">
+                <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fbuiltprefab.com%2Fcropped-blank-profile-picture-973460_960_720-300x300-png%2F&psig=AOvVaw0oirAonaHVD39ZUKf-WwmP&ust=1675262051151000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCIjTp8yD8vwCFQAAAAAdAAAAABAK"
+                 alt="Profile" className="profile-img" />
+                <h5 className="profile-name">
+                {user.data.display_name}
+                </h5>
+              </div>
+              <h1 className="greet">Welcome back ,{user.data.display_name} </h1>
               {/* In outlet you can see that the Child routes of the router componenets gets displayed in the Outlet area  */}
               <Outlet />
             </div>
