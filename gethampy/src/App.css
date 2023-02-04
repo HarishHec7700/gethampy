@@ -63,3 +63,9 @@ body {
 .profile-img{
   
 }
+
+/* Player Component styles */
+
+.playlist-info img{
+  width: 100%;
+}

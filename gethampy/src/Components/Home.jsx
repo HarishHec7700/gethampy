@@ -16,7 +16,7 @@ function Home() {
       setUser(res);
       // console.log(res.data.display_name);
     })
-  }, [])
+  },[])
   console.log(user);
   return (
     <>
@@ -47,7 +47,7 @@ function Home() {
                       </div>
                     </div>
                     <div className="col-lg-2">
-                      <div className="sidebar-icons"><Link to="/home/playlist">
+                      <div className="sidebar-icons"><Link to="/home/player">
                         <PlayArrowRoundedIcon style={{ fontSize: "2rem", color: "#000" }} />
 
                       </Link>
@@ -61,7 +61,7 @@ function Home() {
                       </div>
                     </div>
                     <div className="col-lg-2">
-                      <div className="sidebar-icons"><Link to="/home/library">
+                      <div className="sidebar-icons"><Link to="/home/playlists">
                         <LibraryMusicRoundedIcon style={{ fontSize: "2rem", color: "#000" }} />
 
                       </Link>
@@ -85,10 +85,10 @@ function Home() {
                 <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fbuiltprefab.com%2Fcropped-blank-profile-picture-973460_960_720-300x300-png%2F&psig=AOvVaw0oirAonaHVD39ZUKf-WwmP&ust=1675262051151000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCIjTp8yD8vwCFQAAAAAdAAAAABAK"
                  alt="Profile" className="profile-img" />
                 <h5 className="profile-name">
-                {user.data.display_name}
+                {/* {user.data.display_name} */}HI
                 </h5>
               </div>
-              <h1 className="greet">Welcome back ,{user.data.display_name} </h1>
+              <h1 className="greet">Welcome back , </h1>
               {/* In outlet you can see that the Child routes of the router componenets gets displayed in the Outlet area  */}
               <Outlet />
             </div>
