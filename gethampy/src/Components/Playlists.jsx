@@ -22,10 +22,9 @@ function Playlists() {
           <div className="row">
           {
             playlists.map((playlist)=>{
-              console.log(playlist.images[0].url)
               return (
                 <div className="col-lg-3">
-                  <div className="playlist-container">
+                  <div className="playlist-container" >
                     <img src={playlist.images[0].url} alt='Playlist cover' className="playlist-cover" />
                     <div className="playlist-info">
                       <div className="row">

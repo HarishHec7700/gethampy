@@ -51,7 +51,6 @@ body {
 
 .mainplayer {
   background-color: #1b1414;
-  height: 100vh;
   color: #fff;
   padding: 3rem;
   border-radius: 1.8rem 0 0 1.8rem;
@@ -66,6 +65,28 @@ body {
 
 /* Player Component styles */
 
-.playlist-info img{
+.playlist-cont{
+  overflow-y: scroll;
+}
+
+.playlist-container{
+  margin: 1rem 0.5rem;
+  border-radius: 1.5rem;
+  border:#262424 solid 2px;
+  overflow: hidden;
+  transition: ease all 0.5s;
+}
+
+.playlist-container:hover{
+  transform: scale(1.1);
+}
+
+.playlist-container img{
   width: 100%;
+  margin-bottom: 1rem;
+
+}
+
+.playlist-title{
+  margin: 0.5rem;
 }
