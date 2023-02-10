@@ -7,16 +7,19 @@ import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
 import MeetingRoomRoundedIcon from '@mui/icons-material/MeetingRoomRounded';
 import { Outlet, Link } from 'react-router-dom';
 import apiClient from '../AuthProcess/ApiDetails';
+import CircularProgressWithLabel from '@mui/material/CircularProgress';
 
 
 function Home() {
+  const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState({});
   useEffect(() => {
     apiClient.get("me").then((res) => {
       setUser(res);
+      setIsLoading(false);
       // console.log(res.data.display_name);
     })
-  },[])
+  }, [])
   console.log(user);
   return (
     <>
@@ -81,14 +84,22 @@ function Home() {
           </div>
           <div className='col-sm-11 col-md-11 col-lg-11'>
             <div className='mainplayer'>
-              <div className="profile-disp d-flex">
-                <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fbuiltprefab.com%2Fcropped-blank-profile-picture-973460_960_720-300x300-png%2F&psig=AOvVaw0oirAonaHVD39ZUKf-WwmP&ust=1675262051151000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCIjTp8yD8vwCFQAAAAAdAAAAABAK"
-                 alt="Profile" className="profile-img" />
-                <h5 className="profile-name">
-                {/* {user.data.display_name} */}HI
-                </h5>
-              </div>
-              <h1 className="greet">Welcome back , </h1>
+              {
+                isLoading ?
+                  <div className="loading-screen align-items-center justify-content-center d-flex" style={{ width: "100vh" }}>
+                    <CircularProgressWithLabel />
+                  </div>
+                  : <>
+                    <div className="profile-disp d-flex">
+                      <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fbuiltprefab.com%2Fcropped-blank-profile-picture-973460_960_720-300x300-png%2F&psig=AOvVaw0oirAonaHVD39ZUKf-WwmP&ust=1675262051151000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCIjTp8yD8vwCFQAAAAAdAAAAABAK"
+                        alt="Profile" className="profile-img" />
+                      <h5 className="profile-name">
+                        {user?.data?.display_name}HI
+                      </h5>
+                    </div>
+                    <h1 className="greet">Welcome back , </h1>
+                  </>
+              }
               {/* In outlet you can see that the Child routes of the router componenets gets displayed in the Outlet area  */}
               <Outlet />
             </div>

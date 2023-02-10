@@ -6,7 +6,7 @@ import "./BootStrap/bootstrap.min.css";
 import Feed from "./Components/Feed";
 import Trend from "./Components/Trend"
 import Fav from "./Components/Fav"
-import Player from "./Components/Player"
+import Player from "./Components/Player/Player"
 import Login from "./Components/Login/Login"
 import Playlists from './Components/Playlists';
 import { setClientToken } from './AuthProcess/ApiDetails';

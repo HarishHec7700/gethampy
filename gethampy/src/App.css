@@ -9,9 +9,10 @@
   margin: 0;
 }
 
-.flex-dir-col{
+.flex-dir-col {
   flex-direction: column;
 }
+
 .adjust {
   margin-left: 0;
   margin-right: 0;
@@ -56,37 +57,47 @@ body {
   border-radius: 1.8rem 0 0 1.8rem;
 }
 
-.greet{
+.greet {}
 
-}
-.profile-img{
-  
-}
+.profile-img {}
 
 /* Player Component styles */
 
-.playlist-cont{
+.playlist-cont {
   overflow-y: scroll;
 }
 
-.playlist-container{
+.playlist-container {
   margin: 1rem 0.5rem;
   border-radius: 1.5rem;
-  border:#262424 solid 2px;
+  border: #262424 solid 2px;
   overflow: hidden;
   transition: ease all 0.5s;
 }
 
-.playlist-container:hover{
+.playlist-container:hover {
   transform: scale(1.1);
+  border: #262424 solid 2px;
 }
 
-.playlist-container img{
+.playlist-container img {
   width: 100%;
   margin-bottom: 1rem;
 
 }
 
-.playlist-title{
+.playlist-title {
   margin: 0.5rem;
+}
+
+.playlist-title h5 {
+  font-weight: 700;
+}
+
+.playlist-title p {
+  color: gray;
+}
+
+.loading-screen{
+  height: 100vh;
 }
