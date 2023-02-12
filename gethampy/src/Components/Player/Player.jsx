@@ -16,7 +16,7 @@ function Player() {
       setCurrentTrack(apiData.data.items[0]);
     })
   }, [locate.state.playlistId])
-  // console.log(currentTrack)
+  console.log(currentTrack)
 
   return (
     <>
