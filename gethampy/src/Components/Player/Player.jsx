@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom';
 import apiClient from '../../AuthProcess/ApiDetails';
 import Queue from './Queue';
-import SongInfo from './SongInfo';
+import SongInfo from './Songcard/SongInfo';
 
 
 function Player() {
@@ -13,7 +13,7 @@ function Player() {
   useEffect(() => {
     apiClient.get("playlists/" + locate.state.playlistId + "/tracks").then((apiData) => {
       setTracks(apiData.data.items);
-      setCurrentTrack(apiData.data.items[0]);
+      setCurrentTrack(apiData.data?.items[0]?.track);
     })
   }, [locate.state.playlistId])
   console.log(currentTrack)
@@ -29,7 +29,7 @@ function Player() {
           </div>
           <div className="col-lg-4">
             <div className="right-side-player">
-              <SongInfo />
+              <SongInfo album={currentTrack?.album}/>
               <Queue />
             </div>
           </div>
