@@ -8,7 +8,7 @@ function Playlists() {
   const[playlists,setPlaylists]=useState([]);
   useEffect(()=>{
     apiClient.get("https://api.spotify.com/v1/me/playlists").then((resp)=>{
-      console.log(resp.data.items);
+      // console.log(resp.data.items);
       setPlaylists(resp.data.items)
     })
     .catch((err)=>{

@@ -9,7 +9,7 @@ function SongInfo({album}) {
     <>
       <div className="song-info d-flex">
         <AlbumImg imgUrl={album?.images[0]?.url}/>
-        <AlbumInfo albumm={album} />
+        <AlbumInfo album={album} />
       </div>
     </>
     )

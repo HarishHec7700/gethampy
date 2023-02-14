@@ -20,7 +20,7 @@ function Home() {
       // console.log(res.data.display_name);
     })
   }, [])
-  console.log(user);
+  // console.log(user);
   return (
     <>
       <section className='main'>

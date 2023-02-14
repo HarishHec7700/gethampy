@@ -16,13 +16,11 @@ function App() {
   const [token, setToken] = useState("");
 
   useEffect(() => {
-    // window.localStorage.clear();
     const authToken = window.localStorage.getItem("token"),
-      locate = window.location.hash;
+    locate = window.location.hash;
     window.location.hash = "";
     if (!token && locate) {
       const _token = locate.split("&")[0].split("=")[1];
-      // console.log(authToken);
       window.localStorage.setItem("token", _token);
       setToken(_token);
       setClientToken(_token);
@@ -32,32 +30,28 @@ function App() {
     }
   }, [])
   console.log(token);
-  
+
 
 
   return (
     <>
       <Router>
-        <Routes>
-          <Route path="/" element={<Login />}></Route>
-        </Routes>
-      {token ?
-        <Routes>
-          <Route path="/" element={<Login />}></Route>
-          {/* Nested Routing starts  */}
-          <Route path="/home" element={<Home />}>
-            <Route path="/home/fav" element={<Fav />}></Route>
-            <Route path="/home/feed" element={<Feed />}></Route>
-            <Route path="/home/playlists" element={<Playlists />}></Route>
-            <Route path="/home/player" element={<Player />}></Route>
-            <Route path="/home/trend" element={<Trend />}></Route>
-          </Route>
-        </Routes>
+        {token ?
+          <Routes>
+            <Route path="/" element={<Login />}></Route>
+            {/* Nested Routing starts  */}
+            <Route path="/home" element={<Home />}>
+              <Route path="/home/fav" element={<Fav />}></Route>
+              <Route path="/home/feed" element={<Feed />}></Route>
+              <Route path="/home/playlists" element={<Playlists />}></Route>
+              <Route path="/home/player" element={<Player />}></Route>
+              <Route path="/home/trend" element={<Trend />}></Route>
+            </Route>
+          </Routes>
           :
           <Login />}
       </Router>
     </>
-
   );
 }
 
