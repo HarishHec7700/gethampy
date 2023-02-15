@@ -4,7 +4,7 @@ import AlbumInfo from './AlbumInfo'
 import "./SongCard.css"
 
 function SongInfo({album}) {
-  console.log(album);
+  // console.log(album);
   return (
     <>
       <div className="song-info d-flex">

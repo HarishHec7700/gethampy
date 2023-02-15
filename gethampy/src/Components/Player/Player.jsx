@@ -7,7 +7,8 @@ import SongInfo from './Songcard/SongInfo';
 
 function Player() {
   const [tracks, setTracks] = useState([]);
-  const[currentTrack,setCurrentTrack]=useState({});  
+  const[currentTrack,setCurrentTrack]=useState({});
+  const[currentIndex,setCurrentIndex]=useState(0);  
   const locate = useLocation();
   // console.log(locate.state.playlistId);
   useEffect(() => {
@@ -17,7 +18,9 @@ function Player() {
     })
   }, [locate.state.playlistId])
   // console.log(currentTrack)
-
+  useEffect(()=>{
+    setCurrentTrack(tracks[currentIndex]?.track)
+  },[currentIndex,tracks])
   return (
     <>
       <section className="player">
@@ -30,7 +33,7 @@ function Player() {
           <div className="col-lg-4">
             <div className="right-side-player">
               <SongInfo album={currentTrack?.album}/>
-              <Queue />
+              <Queue tracks={tracks} setCurrentIndex={setCurrentIndex}/>
             </div>
           </div>
         </div>
