@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom';
 import apiClient from '../../AuthProcess/ApiDetails';
+import DisPlayer from './DisplayPlayer/DisPlayer';
 import Queue from './Queue';
 import SongInfo from './Songcard/SongInfo';
 
@@ -17,17 +18,17 @@ function Player() {
       setCurrentTrack(apiData.data?.items[0]?.track);
     })
   }, [locate.state.playlistId])
-  // console.log(currentTrack)
   useEffect(()=>{
     setCurrentTrack(tracks[currentIndex]?.track)
   },[currentIndex,tracks])
+    console.log(currentTrack)
   return (
     <>
       <section className="player">
         <div className="row">
           <div className="col-lg-8">
             <div className="left-side-player">
-
+              <DisPlayer imgUrl={currentTrack?.album?.images[0]?.url}/>
             </div>
           </div>
           <div className="col-lg-4">

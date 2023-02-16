@@ -161,3 +161,21 @@
     transition: all 0.5s;
 }
 
+/* Displayer Components style  */
+
+.displayer-img{
+    z-index: 1;
+    border-radius: 50%;
+}
+
+.progress-stroke{
+    z-index: 0;
+}
+
+.audio-player{
+    margin:2.5rem 0 ;
+    width: 100%;
+}
+.progress-bar{
+    width:40%
+}
