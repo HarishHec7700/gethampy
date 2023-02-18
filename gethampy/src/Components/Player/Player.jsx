@@ -28,7 +28,7 @@ function Player() {
         <div className="row">
           <div className="col-lg-8">
             <div className="left-side-player">
-              <DisPlayer imgUrl={currentTrack?.album?.images[0]?.url}/>
+              <DisPlayer currentTrack={currentTrack} imgUrl={currentTrack?.album?.images[0]?.url}/>
             </div>
           </div>
           <div className="col-lg-4">

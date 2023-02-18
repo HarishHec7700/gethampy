@@ -176,6 +176,25 @@
     margin:2.5rem 0 ;
     width: 100%;
 }
-.progress-bar{
-    width:40%
+.player-song-title{
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
 }
+
+.song-artist{
+    font-size: 1rem;
+}
+
+.left-audio-player{
+    width:30%
+}
+
+.right-audio-player{
+    width: 70%;
+    text-align: center;
+}
+.player-track{
+    gap: 1.5rem;
+}
+
