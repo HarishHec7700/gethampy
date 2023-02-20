@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import { CircularProgress } from '@mui/material'
 import Box from '@mui/material/Box';
 import Controls from './Controls';
@@ -6,14 +6,22 @@ import WaveAni from './WaveAni';
 
 
 
-function DisPlayer({ imgUrl,currentTrack }) {
-    console.log(currentTrack.artists);
+function DisPlayer({ currentTrack,totalTracks,imgUrl }) {
+    // console.log(totalTracks[0]?.track?.preview_url);
+    const [trackProgress,setTrackprogress]=useState(0);
+    const audioSrc=totalTracks[currentTrack]?.tracks?.preview_url;
+    const[isPlaying,setIsPlaying]=useState(true);
+    
+    const isReady=useRef(false);   // We use useRef here because here we are creating a audio element (so inorder to manipulate a DOM element in react we use useRef ) 
+    const audioRef= useRef(new Audio(totalTracks[0]?.track?.preview_url));
+    const {duration} =audioRef.current;  // refers to the total duration of the song in url and normally while logging useRef we get it as an object with one property current
+    
     const songArtists=[];
     currentTrack.artists.forEach((artist)=>{
         console.log(artist.name);
         songArtists.push(artist.name);
     })
-    console.log(songArtists);
+    console.log(audioRef);
     return (
         <>
             <div className="audio-player d-flex ">
@@ -46,7 +54,7 @@ function DisPlayer({ imgUrl,currentTrack }) {
                     </p>
                     <div className="player-track d-flex justify-content-center">
                         <p>0.00</p>
-                        <WaveAni/>
+                        <WaveAni isPlaying={isPlaying}/>
                         <p>0.30</p>
                     </div>            
                     <Controls />
@@ -56,4 +64,4 @@ function DisPlayer({ imgUrl,currentTrack }) {
     )
 }
 
-export default DisPlayer
+export default DisPlayer;
