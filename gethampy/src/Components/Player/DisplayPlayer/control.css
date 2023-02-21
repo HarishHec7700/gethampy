@@ -1,0 +1,31 @@
+.trackControls{
+    margin: 3rem 0;
+    gap: 1rem;
+    align-items: baseline;
+}
+.controlButt{
+    /* width: 3rem; */
+    cursor: pointer;
+    padding: 0.5rem;
+    background-color: #d0dbec25;
+    border-radius: 50%;
+}
+
+.controlButt:hover{
+    background-color: #d0dbec7a;
+    transition: all 0.5s;
+}
+
+.playPauseButt{
+    /* width: 4rem; */
+    cursor: pointer;
+    padding: 1rem;
+    background-color: #d0dbec25;
+    border-radius: 50%;
+}
+
+.playPauseButt:hover{
+    background-color: #d0dbec7a;
+    transition: all 0.5s;
+}
+

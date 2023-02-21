@@ -13,15 +13,15 @@ function Player() {
   const locate = useLocation();
   console.log(locate.state.playlistId);
   useEffect(() => {
-    // if(locate.state){
+    if(locate.state){
       console.log('use');
       apiClient.get("playlists/"+ locate.state.playlistId +"/tracks").then((apiData) => {
         console.log(apiData.data.items)
         setTracks(apiData.data?.items);
         setCurrentTrack(apiData.data?.items[0]?.track);
       })
-    // }
-  }, [])
+    }
+  }, [locate.state])
   useEffect(()=>{
    console.log('use 2'); 
     setCurrentTrack(tracks[currentIndex]?.track)
@@ -32,10 +32,10 @@ function Player() {
       <section className="player">
         <div className="row">
           <div className="col-lg-8">
-            <div className="left-side-player">
+            <div className="left-side-player ">
               {
                 currentTrack?
-                <DisPlayer currentTrack={currentTrack} totalTracks={tracks} imgUrl={currentTrack?.album?.images[0]?.url}/>
+                <DisPlayer currentTrack={currentTrack} currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} totalTracks={tracks} imgUrl={currentTrack?.album?.images[0]?.url}/>
                 :null 
               }
             </div>

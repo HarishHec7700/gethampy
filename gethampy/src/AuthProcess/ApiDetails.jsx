@@ -13,7 +13,6 @@ const apiClient=axios.create({
   baseURL:"https://api.spotify.com/v1/",
 });
 
-
 export const setClientToken=(token)=>{
   // Interceptors in axios is used to customize the request and response with our desired datas i.e like headers or tokens 
   apiClient.interceptors.request.use(async function(config){

@@ -27,13 +27,13 @@ function Playlists() {
               return (
                 <div className="col-lg-3">
                   <div className="playlist-container" onClick={()=>{navi("/home/player",{state:{playlistId:playlist.id}})}} >
-                    <img src={playlist.images[0].url} alt='Playlist cover' className="playlist-cover" />
+                    <img src={playlist?.images[0]?.url} alt='Playlist cover' className="playlist-cover" />
                     <div className="playlist-info">
                       <div className="row">
                         <div className="col-lg-8">
                           <div className="playlist-title">
-                            <h5>{playlist.name}</h5>
-                            <p>{playlist.tracks.total} songs</p>
+                            <h5>{playlist?.name}</h5>
+                            <p>{playlist?.tracks?.total} songs</p>
                           </div>
                         </div>
                         <div className="col-lg-4">
