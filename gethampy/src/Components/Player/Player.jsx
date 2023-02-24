@@ -14,7 +14,7 @@ function Player() {
   console.log(locate.state.playlistId);
   useEffect(() => {
     if(locate.state){
-      console.log('use');
+      // console.log('use');
       apiClient.get("playlists/"+ locate.state.playlistId +"/tracks").then((apiData) => {
         console.log(apiData.data.items)
         setTracks(apiData.data?.items);
@@ -23,7 +23,7 @@ function Player() {
     }
   }, [locate.state])
   useEffect(()=>{
-   console.log('use 2'); 
+  //  console.log('use 2'); 
     setCurrentTrack(tracks[currentIndex]?.track)
   },[currentIndex,tracks])
     console.log(currentTrack)

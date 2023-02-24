@@ -14,7 +14,7 @@ function Controls({ isPlaying, setIsPlaying, nextTrack, prevTrack }) {
         <div className='controlButt' onClick={prevTrack}>
           <SkipPreviousRoundedIcon  style={{fontSize:"2rem"}}/>
         </div>
-        <div className='playPauseButt' >
+        <div className='playPauseButt' onClick={()=>{setIsPlaying(!isPlaying)}}>
           {isPlaying ? <PauseRoundedIcon style={{fontSize:"4rem"}} /> : <PlayArrowRoundedIcon style={{fontSize:"4rem"}} />}
         </div>
         <div className='controlButt' onClick={nextTrack}>
