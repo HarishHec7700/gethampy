@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom';
 import apiClient from '../../AuthProcess/ApiDetails';
 import DisPlayer from './DisplayPlayer/DisPlayer';
+import Widgets from './DisplayPlayer/Widgets/Widgets';
 import Queue from './Queue';
 import SongInfo from './Songcard/SongInfo';
 
@@ -38,6 +39,7 @@ function Player() {
                 <DisPlayer currentTrack={currentTrack} currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} totalTracks={tracks} imgUrl={currentTrack?.album?.images[0]?.url}/>
                 :null 
               }
+              <Widgets artistId={currentTrack?.artists[0]?.id}/>
             </div>
           </div>
           <div className="col-lg-4">

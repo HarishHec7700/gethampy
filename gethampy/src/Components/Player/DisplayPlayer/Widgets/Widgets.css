@@ -1,0 +1,10 @@
+.widgetsCont{
+    
+}
+
+.widgetBox{
+    background-color:#27354d;
+    /* border:5px #fff solid; */
+    padding: 1rem 0.5rem;
+    border-radius: 1.2rem;
+}
