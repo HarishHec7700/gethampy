@@ -15,19 +15,23 @@ function Widgets({artistId}) {
     .then((res)=>{
       const fetchData=res.data?.items?.slice(0,6);
       setAlbums(fetchData);
+      // console.log(fetchData)
     })
     .catch((err)=>{
       console.error(err);
     })
-  },[artistId])
   
-  // useEffect(()=>{
-  //   apiClient.get(`artists/${artistId}/albums`)
-  //   .then((res)=>{
-  //     const fetchData=res.data?.items;
-  //     setAlbums(fetchData)  
-  //   })
-  // },[artistId])
+    apiClient.get(`artists/${artistId}/related-artists`)
+    .then((res)=>{
+      const fetchData=res.data?.artists?.slice(0,6);
+      console.log(fetchData);
+      setSimilar(fetchData)  
+    })
+    .catch((err)=>{
+      console.error(err);
+    })
+    
+  },[artistId])
 
 
   // useEffect(()=>{
@@ -42,7 +46,6 @@ function Widgets({artistId}) {
   // },[artistId])
 
   
-  console.log(artistId)
   return (
     <>
       <div className="widgetsCont container-fluid">
